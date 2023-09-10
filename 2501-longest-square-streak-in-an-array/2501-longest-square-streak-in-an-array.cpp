@@ -19,6 +19,7 @@ public:
             maxCount=max(count,maxCount);
         }
         if(maxCount==1 || maxCount==0) return -1;
+         
         return maxCount;
     }
     
