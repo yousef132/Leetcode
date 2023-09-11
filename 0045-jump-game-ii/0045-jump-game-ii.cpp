@@ -12,6 +12,7 @@ int jump(vector<int>& nums) {
             curEnd = max_jump;
         }
     }
+    
     return ans;
     
 }
