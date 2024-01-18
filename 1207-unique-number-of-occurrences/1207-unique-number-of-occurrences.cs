@@ -15,10 +15,7 @@ public class Solution {
 		}
 	}
 
-	foreach(int v in map.Values)
-	{
-		frequences.Add(v);
-	}
+        frequences.UnionWith(map.Values.ToArray());
 	return frequences.Count == map.Count;
 
 }
