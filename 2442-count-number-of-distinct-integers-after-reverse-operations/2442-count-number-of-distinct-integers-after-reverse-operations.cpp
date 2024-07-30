@@ -1,30 +1,26 @@
 class Solution {
 public:
-string processNumber(string number) {
-   // Remove trailing zeros
-    int end = number.size() - 1;
-    while (end >= 0 && number[end] == '0') {
-        --end;
+int cti(int n)
+{
+    int num = 0;
+    while(n)
+    {
+        int x = n%10;
+        num = num * 10 + x;
+        n = n/10;
     }
-
-    // Reverse the string
-    std::string result;
-    for (int i = end; i >= 0; --i) {
-        result.push_back(number[i]);
-    }
-
-    return result;
+    return num;
 }
     public:
 int countDistinctIntegers(vector<int>& nums) {
-    map<string,int>m;
+    map<int,int>m;
     for (int i = 0; i < nums.size(); ++i) {
-        m[to_string(nums[i])]++;
+        m[nums[i]]++;
     }
     for (int i = 0; i < nums.size(); ++i) {
-        string s = processNumber(to_string(nums[i]));
-        if(!m.count(s)){
-            m[s]++;
+        int num = cti(nums[i]);
+        if(!m.count(num)){
+            m[num]++;
         }
     }
     return m.size();
