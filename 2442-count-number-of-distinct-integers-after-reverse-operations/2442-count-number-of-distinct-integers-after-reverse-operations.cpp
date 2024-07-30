@@ -1,13 +1,19 @@
 class Solution {
 public:
 string processNumber(string number) {
-    // Remove trailing zeros
-    number.erase(number.find_last_not_of('0') + 1);
+   // Remove trailing zeros
+    int end = number.size() - 1;
+    while (end >= 0 && number[end] == '0') {
+        --end;
+    }
 
     // Reverse the string
-    reverse(number.begin(), number.end());
+    std::string result;
+    for (int i = end; i >= 0; --i) {
+        result.push_back(number[i]);
+    }
 
-    return number;
+    return result;
 }
     public:
 int countDistinctIntegers(vector<int>& nums) {
